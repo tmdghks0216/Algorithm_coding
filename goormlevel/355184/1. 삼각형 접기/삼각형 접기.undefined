@@ -1,0 +1,26 @@
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String input = br.readLine();
+		String[] number = input.split(" ");
+
+		long ab = Long.parseLong(number[0]);
+		long ac = Long.parseLong(number[1]);
+
+		long com = gdc(ab, ac);
+
+		System.out.println(ab/com + ":" + ac/com);
+		
+	}
+
+	public static long gdc(long a, long b){
+		while (b != 0) {
+            long temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
+		
+	}
+}
