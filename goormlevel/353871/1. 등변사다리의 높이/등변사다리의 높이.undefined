@@ -1,0 +1,22 @@
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String input = br.readLine();
+		String[] number = input.split(" ");
+
+		long k = Long.parseLong(number[0]);
+		long d1 = Long.parseLong(number[1]);
+		long d2 = Long.parseLong(number[2]);
+
+		if(d1 < d2){
+			long tmp = d1;
+			d1 = d2;
+			d2 = tmp;
+		}
+		
+		long a = (d1-d2);
+		
+		System.out.println(4 * (k * k) - (a*a));
+	}
+}
