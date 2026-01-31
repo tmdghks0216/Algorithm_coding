@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+class Mc implements Comparable<Mc>{
+	int start;
+	int end;
+
+	public Mc(int start, int end){
+		this.start = start;
+		this.end = end;
+	}
+
+	@Override
+	public int compareTo(Mc o) {
+        if (this.end == o.end) return this.start - o.start;
+        return this.end - o.end;
+    }
+}
+
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		List<Mc> list = new ArrayList<>();
+		while(T --> 0){
+			String[] arr = br.readLine().split(" ");
+			list.add(new Mc(Integer.parseInt(arr[0]),Integer.parseInt(arr[1])));
+		}
+
+		Collections.sort(list);
+		int count = 0;
+        int lastEndTime = -1; // 마지막 행사 종료 시간 (1초 대기를 위해 -1로 시작)
+
+        for (Mc m : list) {
+            // 이전 행사 종료 후 최소 1초 뒤에 시작 가능한지 확인
+            if (m.start >= lastEndTime + 1) {
+                count++;
+                lastEndTime = m.end;
+            }
+        }
+        System.out.println(count);
+	}
+}
