@@ -1,0 +1,11 @@
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] numList = br.readLine().split(" ");
+		double num1 = Double.parseDouble(numList[0]);
+		double num2 = Double.parseDouble(numList[1]);
+		double sum = num1 + num2;
+		System.out.println(String.format("%.6f", sum));
+	}
+}
