@@ -1,0 +1,18 @@
+import java.io.*;
+class Main {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] input = br.readLine().split(" ");
+		int n = Integer.parseInt(input[0]);
+		String k = input[1];
+
+		String[] arr = br.readLine().split(" ");
+		int count = 0;
+		for(String str : arr){
+			if(!str.contains(k)){
+				count++;
+			}
+		}
+		System.out.println(count);
+	}
+}
